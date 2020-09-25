@@ -5,7 +5,7 @@ from flask_mongoengine import MongoEngine
 from mongoengine import Document, StringField, IntField
 
 from .config.app_config import evn_config
-from .web.resources.technology import Technology, TechnologyList
+from .web.resources.technology import Technology, TechnologyList, Info
 
 
 def create_app(config_name: str):
@@ -19,6 +19,7 @@ def create_app(config_name: str):
     api = Api(app)
     db = MongoEngine(app)
 
+    api.add_resource(Info, '/')
     api.add_resource(Technology, '/tech/save')
     api.add_resource(TechnologyList, '/tech/list')
 

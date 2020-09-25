@@ -37,3 +37,9 @@ class TechnologyList(Resource):
     def get(self):
         docs = self.repository.find_all()
         return jsonify(docs)
+
+
+class Info(Resource):
+
+    def get(self):
+        return jsonify({"Hello": "checkout our client to query our data"})
